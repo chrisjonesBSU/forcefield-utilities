@@ -48,6 +48,7 @@ def get_identifiers_registry():
         "DihedralTypes": set(),
         "ImproperTypes": set(),
         "PairPotentialTypes": set(),
+        "VirtualSiteTypes": set(),
     }
 
 
@@ -57,7 +58,7 @@ def register_identifiers(registry, identifier, for_type="AtomTypes"):
             f"Duplicate identifier found for {for_type}: {identifier}"
         )
 
-    if for_type == "AtomTypes":
+    if for_type == "AtomTypes" or for_type == "VirtualSiteTypes":
         registry.add(identifier)
     elif (
         for_type == "BondTypes"
